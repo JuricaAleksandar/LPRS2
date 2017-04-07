@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="C:\Users\student.DOMAIN\Desktop\ra2232014\LPRS2\SDK\SDK_Workspace\LPRS2_hw_platform\system_bd.bmm" key="LPRS2_hw_platform-bmmFile"/>
+	<item value="bootloop" key="LPRS2_hw_platform-microblaze_0-initElf"/>
+	<item value="C:\Users\student.DOMAIN\Desktop\ra2232014\LPRS2\SDK\SDK_Workspace\LPRS2_hw_platform\system.bit" key="LPRS2_hw_platform-bitFile"/>
+</section>

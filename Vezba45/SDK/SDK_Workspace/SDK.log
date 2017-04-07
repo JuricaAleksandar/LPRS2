@@ -1,0 +1,28 @@
+11:37:44.369 INFO  - Processing command line option -hwspec C:\Users\student.DOMAIN\Desktop\ra2232014\LPRS2\SDK\SDK_Export\hw\system.xml. 
+11:59:21.437 ERROR - FPGA Configuration failed.Connection to Board Failed
+
+
+    Failed to Open JTAG Cable
+    Cable target is not connected to the host
+ 
+12:02:17.750 INFO  - FPGA configured successfully with bitstream "C:/Users/student.DOMAIN/Desktop/ra2232014/LPRS2/SDK/SDK_Workspace/LPRS2_hw_platform/download.bit" 
+12:03:16.712 INFO  - FPGA configured successfully with bitstream "C:/Users/student.DOMAIN/Desktop/ra2232014/LPRS2/SDK/SDK_Workspace/LPRS2_hw_platform/download.bit" 
+12:03:28.945 INFO  - microblaze_0 Processor is in use. Please stop existing Run or Debug sessions before launching. 
+12:04:30.259 INFO  - Settings changed on project hello_world_bsp. Triggering a rebuild... 
+12:04:30.540 INFO  - Refreshed build settings on project hello_world 
+12:04:41.524 WARN  - Terminating existing sessions on processor microblaze_0 
+12:04:43.287 INFO  - FPGA configured successfully with bitstream "C:/Users/student.DOMAIN/Desktop/ra2232014/LPRS2/SDK/SDK_Workspace/LPRS2_hw_platform/download.bit" 
+12:04:46.906 INFO  - microblaze_0 Processor is in use. Please stop existing Run or Debug sessions before launching. 
+12:04:48.107 ERROR - Unexpected error while launching program. java.lang.RuntimeException: No Active System
+
+	at com.xilinx.sdk.targetmanager.internal.TM.stop(Unknown Source)
+	at com.xilinx.sdk.targetmanager.internal.CPURunSession.terminate(Unknown Source)
+
+12:05:09.949 INFO  - microblaze_0 Processor is in use. Please stop existing Run or Debug sessions before launching. 
+12:05:14.383 ERROR - Unexpected error while launching program. java.lang.RuntimeException: No Active System
+
+	at com.xilinx.sdk.targetmanager.internal.TM.stop(Unknown Source)
+	at com.xilinx.sdk.targetmanager.internal.CPURunSession.terminate(Unknown Source)
+
+12:05:52.528 WARN  - Terminating existing sessions on processor microblaze_0 
+12:12:35.391 ERROR - Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near  
