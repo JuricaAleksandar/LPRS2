@@ -1,5 +1,5 @@
-set -tmpdir "C:/materija/RA47-2014/LPRS2/pcores/vga_periph_v1_00_a/devl/projnav/xst/projnav.tmp"
-set -xsthdpdir "C:/materija/RA47-2014/LPRS2/pcores/vga_periph_v1_00_a/devl/projnav/xst"
+set -tmpdir "C:/materija/RA47-2014/LPRS2/Vezba45/pcores/vga_periph_v1_00_a/devl/projnav/xst/projnav.tmp"
+set -xsthdpdir "C:/materija/RA47-2014/LPRS2/Vezba45/pcores/vga_periph_v1_00_a/devl/projnav/xst"
 run -compileonly yes
 -p xc6slx45-2-fgg676
 -top user_logic

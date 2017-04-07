@@ -151,9 +151,11 @@ architecture IMP of user_logic is
   --USER signal declarations added here, as needed for user logic
   component reg is
 	 generic (
-		WIDTH : natural := 1
+		WIDTH : natural := 1;
+		ADDR : std_logic_vector := x"00000000"
     );
     Port ( i_d : in  STD_LOGIC_VECTOR (WIDTH-1 downto 0);
+			  i_addr : in STD_LOGIC_VECTOR (31 downto 0);
            i_clk : in  STD_LOGIC;
            in_rst : in  STD_LOGIC;
 			  i_EN : in STD_LOGIC;
@@ -290,42 +292,50 @@ begin
   char_we <= '1' when s_unit_id = "01" else '0'; 
   pixel_we <= '1' when s_unit_id = "10" else '0';
   reg_we <= '1' when s_unit_id = "00" else '0';
+  
+  reg_direct_mode:reg
+	 generic map(
+		WIDTH => 1,
+		ADDR => x"00000000"
+    )
+    Port map ( i_d=>Bus2IP_Data(0 downto 0),
+				i_addr=>BUS2IP_Addr(31 downto 0),
+           i_clk=>clk_i ,
+           in_rst=>reset_n_i  ,
+			  i_EN=>reg_we ,
+           o_q(0) => direct_mode 
+	);
+  
   reg_display_mode:reg
 	 generic map(
-		WIDTH => 2
+		WIDTH => 2,
+		ADDR => x"00000004"
     )
     Port map ( i_d=>Bus2IP_Data(1 downto 0),
+				i_addr=>BUS2IP_Addr(31 downto 0),
            i_clk=>clk_i ,
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
            o_q => display_mode 
 	);
 	
-	reg_direct_mode:reg
-	 generic map(
-		WIDTH => 1
-    )
-    Port map ( i_d=>Bus2IP_Data(0 downto 0),
-           i_clk=>clk_i ,
-           in_rst=>reset_n_i  ,
-			  i_EN=>reg_we ,
-           o_q => direct_mode 
-	);
-	
 	reg_show_frame:reg
 	 generic map(
-		WIDTH => 1
+		WIDTH => 1,
+		ADDR => x"00000008"
     )
     Port map ( i_d=>Bus2IP_Data(0 downto 0),
+				i_addr=>BUS2IP_Addr(31 downto 0),
            i_clk=>clk_i ,
            in_rst=>reset_n_i ,
 			  i_EN=>reg_we ,
-           o_q => show_frame 
+           o_q(0) => show_frame 
 	);
 	
 	reg_font_size:reg
 	 generic map(
-		WIDTH => 4
+		WIDTH => 4,
+		ADDR => x"0000000C"
     )
     Port map ( i_d=>Bus2IP_Data(3 downto 0),
            i_clk=>clk_i ,
@@ -376,14 +386,14 @@ begin
   graphics_lenght <= conv_std_logic_vector(MEM_SIZE*8*8, GRAPH_MEM_ADDR_WIDTH);
   
   -- removed to inputs pin
-  direct_mode <= '1';
-  display_mode     <= "10";  -- 01 - text mode, 10 - graphics mode, 11 - text & graphics
+  --direct_mode <= '1';
+  --display_mode     <= "10";  -- 01 - text mode, 10 - graphics mode, 11 - text & graphics
   
-  font_size        <= x"1";
-  show_frame       <= '1';
-  foreground_color <= x"FFFFFF";
-  background_color <= x"000000";
-  frame_color      <= x"FF0000";
+  --font_size        <= x"1";
+  --show_frame       <= '1';
+ -- foreground_color <= x"FFFFFF";
+  --background_color <= x"000000";
+  --frame_color      <= x"FF0000";
 
   clk5m_inst : ODDR2
   generic map(

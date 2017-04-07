@@ -19,7 +19,6 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
@@ -31,9 +30,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity reg is
 	 generic (
-		WIDTH : natural := 1
+		WIDTH : natural := 1;
+		ADDR : std_logic_vector := x"00000000"
     );
     Port ( i_d : in  STD_LOGIC_VECTOR (WIDTH-1 downto 0);
+			  i_addr : in STD_LOGIC_VECTOR (31 downto 0);
            i_clk : in  STD_LOGIC;
            in_rst : in  STD_LOGIC;
 			  i_EN : in STD_LOGIC;
@@ -50,7 +51,7 @@ begin
 if (in_rst='0') then
 	s_q<=(others => '0');
 elsif rising_edge(i_clk) then
-	if (i_EN='1') then
+	if (i_EN='1' and  i_addr=ADDR) then
 		s_q<=i_d;
 	end if;
 end if;
