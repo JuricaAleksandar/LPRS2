@@ -5,23 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompiler" num="432" delta="new" >"C:\materija\RA47-2014\LPRS2\Vezba45\pcores\vga_periph_v1_00_a\hdl\vhdl\user_logic.vhd" Line 321: Formal &lt;<arg fmt="%s" index="1">i_addr</arg>&gt; has no actual or default value.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="432" delta="new" >"C:\materija\RA47-2014\LPRS2\Vezba45\pcores\vga_periph_v1_00_a\hdl\vhdl\user_logic.vhd" Line 332: Formal &lt;<arg fmt="%s" index="1">i_addr</arg>&gt; has no actual or default value.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="432" delta="new" >"C:\materija\RA47-2014\LPRS2\Vezba45\pcores\vga_periph_v1_00_a\hdl\vhdl\user_logic.vhd" Line 343: Formal &lt;<arg fmt="%s" index="1">i_addr</arg>&gt; has no actual or default value.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="432" delta="new" >"C:\materija\RA47-2014\LPRS2\Vezba45\pcores\vga_periph_v1_00_a\hdl\vhdl\user_logic.vhd" Line 354: Formal &lt;<arg fmt="%s" index="1">i_addr</arg>&gt; has no actual or default value.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="432" delta="new" >"C:\materija\RA47-2014\LPRS2\Vezba45\pcores\vga_periph_v1_00_a\hdl\vhdl\user_logic.vhd" Line 365: Formal &lt;<arg fmt="%s" index="1">i_addr</arg>&gt; has no actual or default value.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="854" delta="old" >"C:\materija\RA47-2014\LPRS2\Vezba45\pcores\vga_periph_v1_00_a\hdl\vhdl\user_logic.vhd" Line 149: Unit &lt;<arg fmt="%s" index="1">imp</arg>&gt; ignored due to previous errors.
-</msg>
-
 </messages>
 

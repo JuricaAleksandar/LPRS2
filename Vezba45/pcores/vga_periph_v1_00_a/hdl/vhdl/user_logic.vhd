@@ -152,10 +152,10 @@ architecture IMP of user_logic is
   component reg is
 	 generic (
 		WIDTH : natural := 1;
-		ADDR : std_logic_vector := x"00000000"
+		ADDR : std_logic_vector (21 downto 0):= x"000000"
     );
     Port ( i_d : in  STD_LOGIC_VECTOR (WIDTH-1 downto 0);
-			  i_addr : in STD_LOGIC_VECTOR (31 downto 0);
+			  i_addr : in STD_LOGIC_VECTOR (21 downto 0);
            i_clk : in  STD_LOGIC;
            in_rst : in  STD_LOGIC;
 			  i_EN : in STD_LOGIC;
@@ -292,14 +292,19 @@ begin
   char_we <= '1' when s_unit_id = "01" else '0'; 
   pixel_we <= '1' when s_unit_id = "10" else '0';
   reg_we <= '1' when s_unit_id = "00" else '0';
+  char_address<="00000000" & s_unit_addr;
+  pixel_address<="00000000" & s_unit_addr;
+  char_value<=BUS2IP_Data(TEXT_MEM_DATA_WIDTH-1 downto 0);
+  pixel_value<=BUS2IP_Data(GRAPH_MEM_DATA_WIDTH-1 downto 0);
+  
   
   reg_direct_mode:reg
 	 generic map(
 		WIDTH => 1,
-		ADDR => x"00000000"
+		ADDR => x"000000" --0x00000000
     )
     Port map ( i_d=>Bus2IP_Data(0 downto 0),
-				i_addr=>BUS2IP_Addr(31 downto 0),
+				i_addr=>s_unit_addr(23 downto 2),
            i_clk=>clk_i ,
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
@@ -309,10 +314,10 @@ begin
   reg_display_mode:reg
 	 generic map(
 		WIDTH => 2,
-		ADDR => x"00000004"
+		ADDR => x"000001" --0x00000004
     )
     Port map ( i_d=>Bus2IP_Data(1 downto 0),
-				i_addr=>BUS2IP_Addr(31 downto 0),
+				i_addr=>s_unit_addr(23 downto 2),
            i_clk=>clk_i ,
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
@@ -322,10 +327,10 @@ begin
 	reg_show_frame:reg
 	 generic map(
 		WIDTH => 1,
-		ADDR => x"00000008"
+		ADDR => x"000002"--0x00000008
     )
     Port map ( i_d=>Bus2IP_Data(0 downto 0),
-				i_addr=>BUS2IP_Addr(31 downto 0),
+				i_addr=>s_unit_addr(23 downto 2),
            i_clk=>clk_i ,
            in_rst=>reset_n_i ,
 			  i_EN=>reg_we ,
@@ -335,10 +340,11 @@ begin
 	reg_font_size:reg
 	 generic map(
 		WIDTH => 4,
-		ADDR => x"0000000C"
+		ADDR => x"000003"--0x0000000C
     )
     Port map ( i_d=>Bus2IP_Data(3 downto 0),
            i_clk=>clk_i ,
+			  i_addr=>s_unit_addr(23 downto 2),
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
            o_q => font_size 
@@ -346,10 +352,12 @@ begin
 	
 	reg_foreground_color:reg
 	 generic map(
-		WIDTH => 24
+		WIDTH => 24,
+		ADDR => x"000004"--0x00000010
     )
     Port map ( i_d=>Bus2IP_Data(23 downto 0),
            i_clk=>clk_i ,
+			  i_addr=>s_unit_addr(23 downto 2),
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
            o_q => foreground_color 
@@ -357,10 +365,12 @@ begin
 	
 	reg_background_color:reg
 	 generic map(
-		WIDTH => 24
+		WIDTH => 24,
+		ADDR => x"000005"--0x00000014
     )
     Port map ( i_d=>Bus2IP_Data(23 downto 0),
            i_clk=>clk_i ,
+			  i_addr=>s_unit_addr(23 downto 2),
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
            o_q => background_color 
@@ -368,10 +378,12 @@ begin
 	
 	reg_frame_color:reg
 	 generic map(
-		WIDTH => 24
+		WIDTH => 24,
+		ADDR => x"000006"--0x00000018
     )
     Port map ( i_d=>Bus2IP_Data(23 downto 0),
            i_clk=>clk_i ,
+			  i_addr=>s_unit_addr(23 downto 2),
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
            o_q => frame_color 

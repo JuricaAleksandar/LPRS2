@@ -31,10 +31,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity reg is
 	 generic (
 		WIDTH : natural := 1;
-		ADDR : std_logic_vector := x"00000000"
+		ADDR : std_logic_vector(21 downto 0):= x"000000"
     );
     Port ( i_d : in  STD_LOGIC_VECTOR (WIDTH-1 downto 0);
-			  i_addr : in STD_LOGIC_VECTOR (31 downto 0);
+			  i_addr : in STD_LOGIC_VECTOR (21 downto 0);
            i_clk : in  STD_LOGIC;
            in_rst : in  STD_LOGIC;
 			  i_EN : in STD_LOGIC;

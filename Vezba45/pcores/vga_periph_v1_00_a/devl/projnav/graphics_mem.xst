@@ -2,7 +2,7 @@ set -tmpdir "/home/aleksandar/LPRS2/Vezba45/pcores/vga_periph_v1_00_a/devl/projn
 set -xsthdpdir "/home/aleksandar/LPRS2/Vezba45/pcores/vga_periph_v1_00_a/devl/projnav/xst"
 run -compileonly yes
 -p xc6slx45-2-fgg676
--top user_logic
+-top graphics_mem
 -opt_mode Speed
 -opt_level 1
 -power NO
@@ -47,4 +47,4 @@ run -compileonly yes
 -iob Auto
 -equivalent_register_removal YES
 -slice_utilization_ratio_maxmargin 5
--ifn user_logic.prj
+-ifn graphics_mem.prj
