@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-04-11T10:48:19</DateModified>
+  <DateModified>2017-04-11T14:34:41</DateModified>
   <ModuleName>vga_periph</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/home/aleksandar/LPRS2/Vezba45/pcores/vga_periph_v1_00_a/devl/projnav/iseconfig/vga_periph.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/aleksandar/LPRS2/Vezba45/pcores/vga_periph_v1_00_a/devl/projnav/</ImplementationReportsDirectory>
+  <SavedFilePath>C:/materija/RA47-2014/LPRS2/Vezba45/pcores/vga_periph_v1_00_a/devl/projnav/iseconfig/vga_periph.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/materija/RA47-2014/LPRS2/Vezba45/pcores/vga_periph_v1_00_a/devl/projnav\</ImplementationReportsDirectory>
   <DateInitialized>2017-04-05T09:48:46</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

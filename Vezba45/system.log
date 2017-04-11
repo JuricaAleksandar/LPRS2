@@ -1389,3 +1389,42 @@ Done writing filter settings to:
 	C:\materija\RA47-2014\LPRS2\etc\system.filters
 Done writing Tab View settings to:
 	C:\materija\RA47-2014\LPRS2\etc\system.gui
+Xilinx Platform Studio (XPS)
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Writing filter settings....
+Done writing filter settings to:
+	C:\materija\RA47-2014\LPRS2\Vezba45\etc\system.filters
+Done writing Tab View settings to:
+	C:\materija\RA47-2014\LPRS2\Vezba45\etc\system.gui
+ERROR:EDK:1405 - File not found in any repository 'vga_periph_v1_00_a/hdl/vhdl/char_rom_def.vhd'
+ERROR:EDK:1405 - File not found in any repository 'vga_periph_v1_00_a/hdl/vhdl/reg.vhd'
+Writing filter settings....
+Done writing filter settings to:
+	C:\materija\RA47-2014\LPRS2\Vezba45\etc\system.filters
+Done writing Tab View settings to:
+	C:\materija\RA47-2014\LPRS2\Vezba45\etc\system.gui
+Assigned Driver generic 1.00.a for instance vga_periph_0
+vga_periph_0 has been added to the project
+WARNING:EDK:2137 - Peripheral vga_periph_0 is not accessible from any processor in the system. Check Bus Interface connections and address parameters. 
+WARNING:EDK:2137 - Peripheral vga_periph_0 is not accessible from any processor in the system. Check Bus Interface connections and address parameters. 
+vga_periph_0 has been deleted from the project
+WARNING:EDK:2137 - Peripheral DIP_Switches is not accessible from any processor in the system. Check Bus Interface connections and address parameters. 
+DIP_Switches has been deleted from the project
+LEDS has been deleted from the project
+Writing filter settings....
+Done writing filter settings to:
+	C:\materija\RA47-2014\LPRS2\Vezba45\etc\system.filters
+Done writing Tab View settings to:
+	C:\materija\RA47-2014\LPRS2\Vezba45\etc\system.gui
+Assigned Driver generic 1.00.a for instance vga_periph_0
+vga_periph_0 has been added to the project
+WARNING:EDK:2137 - Peripheral vga_periph_0 is not accessible from any processor in the system. Check Bus Interface connections and address parameters. 
+WARNING:EDK:2137 - Peripheral vga_periph_0 is not accessible from any processor in the system. Check Bus Interface connections and address parameters. 
+vga_periph_0 has been deleted from the project
+Writing filter settings....
+Done writing filter settings to:
+	C:\materija\RA47-2014\LPRS2\Vezba45\etc\system.filters
+Done writing Tab View settings to:
+	C:\materija\RA47-2014\LPRS2\Vezba45\etc\system.gui

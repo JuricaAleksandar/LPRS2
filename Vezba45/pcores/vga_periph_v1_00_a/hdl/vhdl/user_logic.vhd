@@ -283,28 +283,32 @@ component ODDR2
 
 	signal s_unit_id : std_logic_vector(1 downto 0);
 	signal s_unit_addr : std_logic_vector(23 downto 0);
+	signal s_data : std_logic_vector(31 downto 0);
    signal reg_we : std_logic;
+	signal write_enable : std_logic;
 begin
 
   --USER logic implementation added here
   s_unit_id <= Bus2IP_Addr(25 downto 24);
-  s_unit_addr <= Bus2IP_Addr(23 downto 0);
-  char_we <= '1' when s_unit_id = "01" else '0'; 
-  pixel_we <= '1' when s_unit_id = "10" else '0';
-  reg_we <= '1' when s_unit_id = "00" else '0';
-  char_address<="00000000" & s_unit_addr;
-  pixel_address<="00000000" & s_unit_addr;
+  s_unit_addr <= Bus2IP_Addr(21 downto 0);
+  write_enable<=Bus2IP_CS(0) and not (Bus2IP_RNW);
+  char_we <= '1' when (s_unit_id = "01" and write_enable='1') else '0'; 
+  pixel_we <= '1' when (s_unit_id = "10" and write_enable='1') else '0';
+  reg_we <= '1' when (s_unit_id = "00" and write_enable='1') else '0';
+  char_address<="0000000000" & s_unit_addr;
+  pixel_address<="0000000000" & s_unit_addr;
   char_value<=BUS2IP_Data(TEXT_MEM_DATA_WIDTH-1 downto 0);
   pixel_value<=BUS2IP_Data(GRAPH_MEM_DATA_WIDTH-1 downto 0);
-  
+  IP2Bus_Data<=(others => '0');
+  s_data<=Bus2IP_data;
   
   reg_direct_mode:reg
 	 generic map(
 		WIDTH => 1,
 		ADDR => x"000000" --0x00000000
     )
-    Port map ( i_d=>Bus2IP_Data(0 downto 0),
-				i_addr=>s_unit_addr(23 downto 2),
+    Port map ( i_d=>s_data(0 downto 0),
+				i_addr=>s_unit_addr,
            i_clk=>clk_i ,
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
@@ -316,8 +320,8 @@ begin
 		WIDTH => 2,
 		ADDR => x"000001" --0x00000004
     )
-    Port map ( i_d=>Bus2IP_Data(1 downto 0),
-				i_addr=>s_unit_addr(23 downto 2),
+    Port map ( i_d=>s_data(1 downto 0),
+				i_addr=>s_unit_addr,
            i_clk=>clk_i ,
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
@@ -329,8 +333,8 @@ begin
 		WIDTH => 1,
 		ADDR => x"000002"--0x00000008
     )
-    Port map ( i_d=>Bus2IP_Data(0 downto 0),
-				i_addr=>s_unit_addr(23 downto 2),
+    Port map ( i_d=>s_data(0 downto 0),
+				i_addr=>s_unit_addr,
            i_clk=>clk_i ,
            in_rst=>reset_n_i ,
 			  i_EN=>reg_we ,
@@ -342,9 +346,9 @@ begin
 		WIDTH => 4,
 		ADDR => x"000003"--0x0000000C
     )
-    Port map ( i_d=>Bus2IP_Data(3 downto 0),
+    Port map ( i_d=>s_data(3 downto 0),
            i_clk=>clk_i ,
-			  i_addr=>s_unit_addr(23 downto 2),
+			  i_addr=>s_unit_addr,
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
            o_q => font_size 
@@ -355,9 +359,9 @@ begin
 		WIDTH => 24,
 		ADDR => x"000004"--0x00000010
     )
-    Port map ( i_d=>Bus2IP_Data(23 downto 0),
+    Port map ( i_d=>s_data(23 downto 0),
            i_clk=>clk_i ,
-			  i_addr=>s_unit_addr(23 downto 2),
+			  i_addr=>s_unit_addr,
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
            o_q => foreground_color 
@@ -368,9 +372,9 @@ begin
 		WIDTH => 24,
 		ADDR => x"000005"--0x00000014
     )
-    Port map ( i_d=>Bus2IP_Data(23 downto 0),
+    Port map ( i_d=>s_data(23 downto 0),
            i_clk=>clk_i ,
-			  i_addr=>s_unit_addr(23 downto 2),
+			  i_addr=>s_unit_addr,
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
            o_q => background_color 
@@ -381,9 +385,9 @@ begin
 		WIDTH => 24,
 		ADDR => x"000006"--0x00000018
     )
-    Port map ( i_d=>Bus2IP_Data(23 downto 0),
+    Port map ( i_d=>s_data(23 downto 0),
            i_clk=>clk_i ,
-			  i_addr=>s_unit_addr(23 downto 2),
+			  i_addr=>s_unit_addr,
            in_rst=>reset_n_i  ,
 			  i_EN=>reg_we ,
            o_q => frame_color 

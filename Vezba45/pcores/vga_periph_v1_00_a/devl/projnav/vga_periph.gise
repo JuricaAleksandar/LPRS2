@@ -32,6 +32,9 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="user_logic.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="user_logic.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="user_logic.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="vga_top.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="vga_top.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="vga_top.xst"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
